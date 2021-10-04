@@ -1,9 +1,78 @@
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{geometry}
-\geometry{total={210mm,300mm},
+% =========
+% packages		
+% =========
+\usepackage{geometry} % page size
+\usepackage{fancyhdr} % page style
+\usepackage{graphicx, wrapfig, caption, subcaption} % figures
+\usepackage{amsmath, mathtools, esvect} % math 
+\usepackage{amssymb, amsfonts, amsthm}  % math
+\usepackage{xcolor} % colour
+\usepackage{empheq} % emphasize equations 
+\usepackage[most]{tcolorbox} % config box
+\usepackage{hyperref} % clickable files
+
+% =============
+% student name
+% =============
+\newcommand{\student}{{Jhon Charaja}}
+\newcommand{\course}{{Legged robots}}
+\newcommand{\labnumber}{{1}}
+
+% ===========
+% make title
+% ===========
+\renewcommand{\maketitle}{%
+	\thispagestyle{empty}
+	\begin{figure}
+		\hfill
+		\includegraphics[height=.1\textheight]{images/horizontal_fotografico_com_subtitulo_ingles.pdf}
+	\end{figure}
+	
+	\noindent
+	\rule{17cm}{0.05cm}\\[0.3cm]
+	\textbf{Name}: \student \hfill \textbf{List Number}: \assignment\\[0.1cm]
+	\textbf{Course}: \course \hfill \textbf{Date}: \today\\
+	\rule{17cm}{0.05cm}
+	\vspace{0.5cm}	
+}
+
+% ==============
+% page settings
+% ==============
+\geometry{%
+  total={210mm,300mm},
   left   = 30mm,
   right  = 30mm,
   top    = 30mm,
   bottom = 30mm,
+}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textit{\course}}
+\cfoot{-~\thepage~-}
+%\lfoot{\textit{Lab}:~\labnumber}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+% =============
+% caption setup
+%==============
+\captionsetup{justification=centering}
+
+% =================
+% pdf configuration
+% =================
+\hypersetup{%
+pdftitle   = {Jhon~Charaja~lab~1},
+pdfauthor  = {Jhon~Charaja},
+colorlinks = true,
+linkcolor  = blue,
+urlcolor   = blue,
+citecolor  = blue,
+bookmarks  = true,
+bookmarksopenlevel = 2,
 }
