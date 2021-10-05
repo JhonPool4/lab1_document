@@ -1,5 +1,4 @@
 % activity 1.1
-\section{Decentralized control}
 \subsection{Sinusoidal reference generation}
 The objective of this activity is display the UR5 robot on rviz. The simulation should start with a initial joint configuration $\begin{bmatrix} \pi & -\frac{\pi}{8} & -\frac{\pi}{6} & 0.0 & 0.0 & 0.0 \end{bmatrix}$ and then move the second and fifth joint. The joints will move with a sinusoidal reference during the first 4 seconds and maintain a constant joint position during the last second. The function to generate the sinusoidal reference is describe in Algorithm \ref{lst:sine_reference_generator} and the algorithm to move the second and fifth joint of UR5 robot is describe in Algorithm \ref{lst:rosnode_sine_reference_generator}. Finally, Figure \ref{fig:act1.1_joint_position}-\ref{fig:act1.1_joint_acceleration} shows the joint position, velocity and acceleration of each joint of the UR5 robot.
 
