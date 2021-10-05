@@ -1,6 +1,7 @@
 % =========
 % packages		
 % =========
+\usepackage[utf8]{inputenc}
 \usepackage{geometry} % page size
 \usepackage{fancyhdr} % page style
 \usepackage{graphicx, wrapfig, caption, subcaption} % figures
@@ -10,6 +11,7 @@
 \usepackage{empheq} % emphasize equations 
 \usepackage[most]{tcolorbox} % config box
 \usepackage{hyperref} % clickable files
+\usepackage{listings} % environment code
 
 % =============
 % student name
@@ -58,10 +60,42 @@
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 
+% =========
+% my colors
+% =========
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
 % =============
 % caption setup
 %==============
 \captionsetup{justification=centering}
+
+% =============
+% listing setup
+% =============
+\renewcommand{\lstlistingname}{Algorithm}% Listing -> Algorithm
+\lstdefinestyle{my_style}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=my_style}
 
 % =================
 % pdf configuration
@@ -74,5 +108,4 @@ linkcolor  = blue,
 urlcolor   = blue,
 citecolor  = blue,
 bookmarks  = true,
-bookmarksopenlevel = 2,
 }
