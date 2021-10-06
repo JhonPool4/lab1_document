@@ -1,5 +1,5 @@
 % act_1.3
-\subsection{Step reference generation}
+\subsection{Joint PD control}
 The objective of this activity is display the UR5 robot on rviz and move two joints to a constant position. The simulation should start with the initial joint configuration $\begin{bmatrix} \pi & -\frac{\pi}{8} & -\frac{\pi}{6} & 0.0 & 0.0 & 0.0 \end{bmatrix}$ and then move the second and fifth joint. The two joints will maintain the initial configuration during the first $2$ seconds and follow a step reference during the last $3$ seconds. The function to generate the step reference is describe in Algorithm \ref{lst:step_reference_generator} and the rosnode file to move the second and fifth joint of UR5 robot is describe in Algorithm \ref{lst:rosnode_step_reference_generator}. Finally, Figure \ref{fig:act_1.2_joint_position}-\ref{fig:act_1.2_joint_acceleration} show the joint position, velocity and acceleration of each joint of the UR5 robot.
 
 \begin{lstlisting}[language=Python,caption={Rosnode to move the second and fifth joint of UR5 robot with the requirement motion of activity 1.3.}, label={lst:joint_PD_control}]
