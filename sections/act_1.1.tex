@@ -1,6 +1,6 @@
 % activity 1.1
 \subsection{Sinusoidal reference generation}
-The objective of this activity is display the UR5 robot on rviz. The simulation should start with the   initial joint configuration $\begin{bmatrix} \pi & -\frac{\pi}{8} & -\frac{\pi}{6} & 0.0 & 0.0 & 0.0 \end{bmatrix}$ and then move the second and fifth joint. The joints will move with a sinusoidal reference during the first 4 seconds and maintain a constant joint position during the last second. The function to generate the sinusoidal reference is describe in Algorithm \ref{lst:sine_reference_generator} and the rosnode file to move the second and fifth joint of UR5 robot is describe in Algorithm \ref{lst:rosnode_sine_reference_generator}. Finally, Figure \ref{fig:act1.1_joint_position}-\ref{fig:act1.1_joint_acceleration} shows the joint position, velocity and acceleration of each joint of the UR5 robot.
+The objective of this activity is display the UR5 robot on rviz. The simulation should start with the initial joint configuration $\begin{bmatrix} \pi & -\frac{\pi}{8} & -\frac{\pi}{6} & 0.0 & 0.0 & 0.0 \end{bmatrix}$ and then move the second and fifth joint. The joints will move with a sinusoidal reference during the first 4 seconds and maintain a constant joint position during the last second. The function to generate the sinusoidal reference is describe in Algorithm \ref{lst:sine_reference_generator} and the rosnode file to move the second and fifth joint of UR5 robot is describe in Algorithm \ref{lst:rosnode_sine_reference_generator}. Finally, Figure \ref{fig:act_1.1_joint_position}-\ref{fig:act_1.1_joint_acceleration} show the joint position, velocity and acceleration of each joint of the UR5 robot.
 
 \begin{lstlisting}[language=Python,caption=Function to generate sinusoidal reference., label={lst:sine_reference_generator}]
     def sinusoidal_reference_generator(q0, dq0, ddq0, a, f, t):
@@ -26,7 +26,7 @@ The objective of this activity is display the UR5 robot on rviz. The simulation 
 
     return q, dq, ddq
 \end{lstlisting}
-%Rosnode to move the second and fifth joint of UR5 robot. On one hand, the second joint will follow the sinusoidal reference $0.2\sin{2\pi t}$ during the first $4$ seconds and maintain a constant angular position during the last second. On the other hand, the fifth joint will follow the sinusoidal reference $0.4\sin{3\pi t}$ during the first $4$ seconds and maintain a constant angular position during the last second.
+
 \begin{lstlisting}[language=Python,caption={Rosnode to move the second and fifth joint of UR5 robot with the requirement motion of activity 1.1.} ,label={ lst:rosnode_sine_reference_generator}]
     # =========================
     #   Configuration of node
@@ -61,9 +61,9 @@ The objective of this activity is display the UR5 robot on rviz. The simulation 
     ddq0 = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]) 
     
     # desired trajectory: position, velocity and acceleration
-    q_des   = np.zeros(ndof)
-    dq_des  = np.zeros(ndof)
-    ddq_des = np.zeros(ndof)
+    q_des   = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]) 
+    dq_des  = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]) 
+    ddq_des = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0]) 
     
     #===============
     #   Simulation
