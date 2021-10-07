@@ -1,6 +1,6 @@
 % act_1.2
 \subsection{Step reference generation}
-The objective of this activity is display the UR5 robot on rviz and move two joints to a constant position. The simulation should start with the initial joint configuration $\begin{bmatrix} \pi & -\frac{\pi}{8} & -\frac{\pi}{6} & 0.0 & 0.0 & 0.0 \end{bmatrix}$ and then move the second and fifth joint. The two joints will maintain the initial configuration during the first $2$ seconds and follow a step reference during the last $3$ seconds. The function to generate the step reference is describe in Algorithm \ref{lst:step_reference_generator} and the rosnode file to move the second and fifth joint of UR5 robot is describe in Algorithm \ref{lst:rosnode_step_reference_generator}. Finally, Figure \ref{fig:act_1.2_joint_position}-\ref{fig:act_1.2_joint_acceleration} show the joint position, velocity and acceleration of each joint of the UR5 robot.
+The objective of this activity is display the UR5 robot on rviz and move two joints to a constant reference position. The simulation should start with the initial joint configuration $\begin{bmatrix} \pi & -\frac{\pi}{8} & -\frac{\pi}{6} & 0.0 & 0.0 & 0.0 \end{bmatrix}$ and then move the second and fifth joint. The two joints will maintain the initial configuration during the first $2$ seconds and follow a step reference during the last $3$ seconds. The function to generate the step reference is describe in Algorithm \ref{lst:step_reference_generator} and the rosnode file to move the second and fifth joint of UR5 robot is describe in Algorithm \ref{lst:rosnode_step_reference_generator}. Finally, Figure \ref{fig:act_1.2_joint_position}-\ref{fig:act_1.2_joint_acceleration} show the joint position, velocity and acceleration of each joint of the UR5 robot.
 
 \begin{lstlisting}[language=Python,caption=Function to generate step reference., label={lst:step_reference_generator}]
 def step_reference_generator(q0, a):
@@ -12,7 +12,9 @@ def step_reference_generator(q0, a):
         - q0: initial joint position
         - a: constant reference
     Outputs:
-        - constant signal 
+        - q: angular position
+        - dq: angular velocity
+        - ddq: angular acceleration
     """
     q = q0 + a  # [rad]
     dq = 0      # [rad/s]
@@ -22,7 +24,7 @@ def step_reference_generator(q0, a):
 
 
 
-\begin{lstlisting}[language=Python, caption={Rosnode to move the second and fifth joint of UR5 robot with the requirement motion of activity 1.2.}, label={lst:rosnode_step_reference_generator}]
+\begin{lstlisting}[language=Python, caption={Move the second and fifth joint of UR5 robot with the required movement of activity 1.2.}, label={lst:rosnode_step_reference_generator}]
 # =========================
 #   Configuration of node
 # =========================
