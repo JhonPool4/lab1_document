@@ -227,7 +227,8 @@ while not rospy.is_shutdown():
         # fifth link
         q_des[4], dq_des[4], ddq_des[4] = sinusoidal_reference_generator(q0[4], dq0[4], ddq0[4], 0.4, 1.5, t)  
         last_q_des_4 = q_des[4]  
-    else:
+    # maintain final angular position
+    else: 
         # second link
         q_des[1], dq_des[1], ddq_des[1] = step_reference_generator(0, last_q_des_1)
         # fifth link
